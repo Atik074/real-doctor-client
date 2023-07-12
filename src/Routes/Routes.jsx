@@ -7,6 +7,7 @@ import AddDoctor from "../Pages/Home/AddDoctor/AddDoctor";
 import DoctorsCard from "../Pages/Home/DoctorsCard/DoctorsCard";
 import DoctorService from "../Pages/Home/DoctorService/DoctorService";
 import PublicOrder from "../Pages/Home/PublicOrder/PublicOrder";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
            } ,
            {
             path:'/orders' ,
-           element:<PublicOrder></PublicOrder>
+           element:<PrivateRoute><PublicOrder></PublicOrder></PrivateRoute>
            }
          
     ],
