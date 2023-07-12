@@ -1,8 +1,9 @@
+import DoctorsCard from "../DoctorsCard/DoctorsCard";
 
 const Home = () => {
     return (
         <div>
-            <h1>this is homeeeeeee</h1>
+            <DoctorsCard/> 
         </div>
     );
 };

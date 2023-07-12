@@ -12,7 +12,8 @@ const handleSingUp = (event)=>{
    const lastName =form.lName.value 
    const email =form.email.value 
    const password = form.password.value 
-        console.log(firstName ,lastName)
+        console.log(firstName ,lastName, email)
+        // const user = {firstName ,lastName, email}
     newUserSignUp(email , password)
     .then(result =>{
       const user = result.user;
@@ -21,7 +22,7 @@ const handleSingUp = (event)=>{
 
     .catch(error =>{console.log(error)})
 
-  
+ 
 
 }
 

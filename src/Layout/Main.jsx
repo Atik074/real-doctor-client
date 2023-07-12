@@ -5,9 +5,12 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 const Main = () => {
     return (
         <div className="p-5">
+         
+           
             <Navbar/>
             <Outlet></Outlet>
             <Footer/>
+      
         </div>
     );
 };

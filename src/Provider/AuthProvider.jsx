@@ -12,6 +12,7 @@ const AuthProvider = ({children}) => {
 
   // new user sing up for account create
   const newUserSignUp = (email , password) =>{
+        setLoading(true)
      return  createUserWithEmailAndPassword(auth ,email , password)
   }
 
@@ -19,6 +20,7 @@ const AuthProvider = ({children}) => {
    const unsubscribe = onAuthStateChanged(auth , currentUser =>{
         console.log(currentUser)
         setUser(currentUser)
+        setLoading(false)
     })
 
     return () =>{
@@ -28,11 +30,13 @@ const AuthProvider = ({children}) => {
   
 // new user for login
    const SignInUser =(email,password) =>{
+    setLoading(true)
    return signInWithEmailAndPassword(auth,email,password)
  }
 
 //  logOut 
     const signOutUser =()=>{  
+        setLoading(true)
         signOut(auth)
  
      }

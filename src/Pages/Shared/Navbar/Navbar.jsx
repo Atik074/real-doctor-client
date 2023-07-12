@@ -38,11 +38,12 @@ const Navbar = () => {
       <Link className="mr-10" to='/service' >Service</Link>
       <Link className="mr-10" to='/about' >About</Link>
       <Link className="mr-10" to='/blog'>Blog</Link>
+      <Link className="mr-10" to='/addDoctor'>Add-Doctors</Link>
   
     </ul>
   </div>
   <div className="navbar-end text-[19px]">
-  <div className="w-30  rounded-full">
+  <div className="w-30  rounded-full"> 
     
      { user ? <>
               <button onClick={logOutUser}>
