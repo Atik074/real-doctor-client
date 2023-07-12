@@ -33,26 +33,30 @@ const Navbar = () => {
     <Link className="text-3xl font-bold text-cyan-400">Real <span className="text-sky-400">-Doctor</span></Link>
   </div>
   <div className="navbar-center hidden lg:flex  ">
-    <ul className="menu menu-horizontal px-1 text-[19px]">
+    <ul className="menu menu-horizontal px-1 text-[19px] font-semibold">
       <Link className="mr-10" to='/'>Home</Link>
       <Link className="mr-10" to='/service' >Service</Link>
       <Link className="mr-10" to='/about' >About</Link>
       <Link className="mr-10" to='/blog'>Blog</Link>
       <Link className="mr-10" to='/addDoctor'>Add-Doctors</Link>
+      
+      
+     
   
     </ul>
   </div>
-  <div className="navbar-end text-[19px]">
+  <div className="navbar-end text-[20px] font-semibold">
   <div className="w-30  rounded-full"> 
     
      { user ? <>
+          <Link className="mx-5" to='/orders'>My-Orders</Link>
               <button onClick={logOutUser}>
                   <Link to=''>Logout</Link>
               </button>
-              
+            
                </> : 
            <>
-            <Link to='/singUp'>Sign up</Link>
+            <Link to='/login'>Login</Link>
             </> } 
               
     </div>

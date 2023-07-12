@@ -12,7 +12,7 @@ const handleSingUp = (event)=>{
    const lastName =form.lName.value 
    const email =form.email.value 
    const password = form.password.value 
-        console.log(firstName ,lastName, email)
+        console.log(firstName ,lastName, email , password)
         // const user = {firstName ,lastName, email}
     newUserSignUp(email , password)
     .then(result =>{
@@ -51,7 +51,7 @@ const handleSingUp = (event)=>{
       <span className="label-text text-[17px]">Your Email</span>
        </label>
       <label className="input-group">
-      <input type="email" name="email" placeholder="type your email" className="input input-bordered w-full mb-3" />
+      <input type="email" required name="email" placeholder="type your email" className="input input-bordered w-full mb-3" />
         </label>
         </div>
         <div className="form-control mb-5">
@@ -59,12 +59,14 @@ const handleSingUp = (event)=>{
       <span className="label-text text-[17px]">Your password</span>
        </label>
       <label className="input-group">
-      <input type="password" name="password" placeholder="type your password" className="input input-bordered w-full mb-3" />
+      <input type="password" name="password" required placeholder="type your password" className="input input-bordered w-full mb-3" />
         </label>
         </div>
 
         <button className="bg-neutral-800	text-white text-xl  px-12 py-3 rounded mb-3"> 
-              <input className="hover:text-sky-500 " type="submit" value="SignIn" />
+        <Link to='/login'>
+         <input className="hover:text-sky-500 " type="submit" value="SignUp" />    
+          </Link>
         </button>
         <p className="mt-5  text-[18px]"> <i>Allready have an account ? </i>
           <Link className="text-red-500"to='/login'> Login</Link>

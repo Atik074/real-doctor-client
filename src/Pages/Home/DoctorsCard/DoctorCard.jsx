@@ -1,9 +1,17 @@
+import { Link } from "react-router-dom";
 
 const DoctorCard = ({doctor}) => {
-     const {name ,img ,degree ,service,hospitalName} =  doctor
+     const {_id ,name ,img ,degree ,service,hospitalName} =  doctor
+   
+     const handleService =id =>{
+      console.log(id)
+    }
+
+
+
     return (
         <div>
-         <div className="card card-side bg-base-100 bg-cyan-600 text-white shadow-xl ">
+         <div className="card card-side  bg-cyan-600 text-white shadow-xl ">
   <figure><img src={img} alt="picture" className="rounded"/></figure>
   <div className="card-body">
     <h2 className="card-title text-xl">Name : {name}</h2>
@@ -14,7 +22,10 @@ const DoctorCard = ({doctor}) => {
     </div>
       
     <div className="">
-      <button className="btn bg-cyan-500 text-[19px] capitalize text-white hover:bg-sky-700 ">Details</button>
+      <Link to={`/doctors/${_id}`}>
+      <button onClick={()=>handleService(_id)} className="btn bg-cyan-500 text-[19px] capitalize text-white hover:bg-sky-700 ">Book NOw</button>
+      </Link>
+    
     </div>
   </div>
 </div>
