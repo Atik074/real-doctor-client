@@ -6,6 +6,7 @@ const PublicOrder = () => {
     const {user} = useContext(AuthContext)
     const [orders , setOrders] =useState([])
 
+// order data delete
     const handleDelete = id =>{
       const proceed = confirm('Are you sure ?')
       if(proceed){
@@ -25,7 +26,32 @@ const PublicOrder = () => {
         })
       }
 }
+
+// order data update 
+ const handleUpdate = id =>{
+      fetch(`http://localhost:5000/orders/${id}`,{
+        method: 'PUT' ,
+        headers:{
+          'content-type' :'application/json'
+        } ,
+        body:JSON.stringify({status:'confirm'})
+      })
+      .then(res =>res.json()) 
+      .then(data =>{
+        console.log(data)
+        if(data.modifiedCount > 0){
+             alert('update succesfull')
+             const remaining = orders.filter(order => order._id !== id)
+             const update = orders.find(order => order._id === id) 
+               update.status = 'confirm' 
+               const newOrders =[update, ...remaining]
+               setOrders(newOrders)
+        }
+      })
+ } 
  
+// update end 
+
 
     const url = `http://localhost:5000/orders?email=${user?.email}`  
  
@@ -36,7 +62,7 @@ const PublicOrder = () => {
             console.log(data)
             setOrders(data)
         })
-      },[])
+      },[url])
 
    
     return (
@@ -60,7 +86,7 @@ const PublicOrder = () => {
         key={order._id}
         order={order}
         handleDelete={handleDelete}
-        
+        handleUpdate ={handleUpdate }
         ></OrderRow>)
        }
      
