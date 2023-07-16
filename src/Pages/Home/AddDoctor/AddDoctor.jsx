@@ -16,7 +16,7 @@ const handleAddDoctor =(event) =>{
     }
      console.log(doctorDetails)
     
-     fetch('http://localhost:5000/doctors' ,{
+     fetch('https://real-doctor-server.vercel.app/doctors' ,{
       method:"POST" ,
       headers:{
         'content-type' : 'application/json'

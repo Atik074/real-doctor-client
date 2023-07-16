@@ -8,6 +8,7 @@ const Navbar = () => {
   // logOut user
   const logOutUser =() =>{
     signOutUser()
+    // localStorage.removeItem('doctor-token')
   }
 
 

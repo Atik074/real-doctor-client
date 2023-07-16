@@ -64,9 +64,9 @@ const handleSingUp = (event)=>{
         </div>
 
         <button className="bg-neutral-800	text-white text-xl  px-12 py-3 rounded mb-3"> 
-        <Link to='/login'>
-         <input className="hover:text-sky-500 " type="submit" value="SignUp" />    
-          </Link>
+    
+    <input className="hover:text-sky-500 " type="submit" value="SignUp" />    
+       
         </button>
         <p className="mt-5  text-[18px]"> <i>Allready have an account ? </i>
           <Link className="text-red-500"to='/login'> Login</Link>

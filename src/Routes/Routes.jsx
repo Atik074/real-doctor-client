@@ -45,8 +45,8 @@ const router = createBrowserRouter([
            } ,
            {
             path:'/doctors/:id' ,
-            element: <DoctorService/>,
-            loader : ({params})=> fetch(`http://localhost:5000/doctors/${params.id}`)
+            element:<PrivateRoute> <DoctorService/> </PrivateRoute>     ,
+            loader : ({params})=> fetch(`https://real-doctor-server.vercel.app/doctors/${params.id}`)
            } ,
            {
             path:'/orders' ,

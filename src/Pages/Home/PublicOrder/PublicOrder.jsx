@@ -1,16 +1,42 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import OrderRow from "./OrderRow";
+import { useNavigate } from "react-router-dom";
 
 const PublicOrder = () => {
     const {user} = useContext(AuthContext)
     const [orders , setOrders] =useState([])
+    const navigate = useNavigate()
+
+
+    
+    const url = `https://real-doctor-server.vercel.app/orders?email=${user?.email}`  
+ 
+      useEffect(()=>{
+        fetch(url ,{
+          method:'GET' ,
+          headers:{
+            authorization : `Bearer ${localStorage.getItem('doctor-token')}`
+          }
+        })
+        .then(res =>res.json())
+        .then(data =>{
+            console.log(data)
+            if(!data.error){
+              setOrders(data)
+            }
+            else{
+                navigate('/')
+            }
+           
+        })
+      },[url])
 
 // order data delete
     const handleDelete = id =>{
       const proceed = confirm('Are you sure ?')
       if(proceed){
-        fetch(`http://localhost:5000/orders/${id}` ,
+        fetch(`https://real-doctor-server.vercel.app/orders/${id}` ,
         {
             method:'DELETE',
             
@@ -29,7 +55,7 @@ const PublicOrder = () => {
 
 // order data update 
  const handleUpdate = id =>{
-      fetch(`http://localhost:5000/orders/${id}`,{
+      fetch(`https://real-doctor-server.vercel.app/orders/${id}`,{
         method: 'PUT' ,
         headers:{
           'content-type' :'application/json'
@@ -53,16 +79,6 @@ const PublicOrder = () => {
 // update end 
 
 
-    const url = `http://localhost:5000/orders?email=${user?.email}`  
- 
-      useEffect(()=>{
-        fetch(url)
-        .then(res =>res.json())
-        .then(data =>{
-            console.log(data)
-            setOrders(data)
-        })
-      },[url])
 
    
     return (

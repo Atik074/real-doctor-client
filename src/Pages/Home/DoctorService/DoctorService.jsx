@@ -5,7 +5,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const DoctorService = () => {
     const Doctorservice = useLoaderData()
     const {user} = useContext(AuthContext)
-    const {  img, name , service ,price} = Doctorservice
+    const {  img,  service ,price} = Doctorservice
     console.log(service)
 
     const handleDoctorService =(event) =>{
@@ -28,7 +28,7 @@ const DoctorService = () => {
         }
          console.log(customerOrders)
 
-         fetch('http://localhost:5000/orders' ,{
+         fetch('https://real-doctor-server.vercel.app/orders' ,{
             method:'POST',
              headers:{
             'content-type' : 'application/json'
@@ -39,6 +39,9 @@ const DoctorService = () => {
          .then(res =>res.json()) 
          .then(data =>{
             console.log(data)
+            if(data.insertedId){
+              alert('successfully added')
+            }
          })
         
         
